@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Home Page</title>
+</head>
+
+<style>
+	h2 {text-align: center;}
+	div {text-align: center;}
+</style>
+
+<body bgcolor="#CBC3E3">
+    <header>
+        <h2>HEARING AID SALES PREDICTION</h2>
+    </header>
+
+    <div
+  	style="
+	    width: 350px;
+	    height: 50rem;
+	    margin: 0px auto;
+	    color: black;
+	    border-radius: 25px;
+	    padding: 10px 10px;"
+	    >
+
+        <form action="{{url_for('predict')}}", method="POST">
+
+            <div class="form-group">
+      			<label for="Age" style="font-size: 17px"><b>Age</b><br></label>
+	         	<input
+			        type="number"
+			        class="form-control"
+			        id="Age"
+			        name="age"
+			        placeholder="Enter the value (example:50)"
+			        required/>
+    		</div>
+    		<br>
+
+    		<div class="form-group">
+      			<label for="Area Code" style="font-size: 17px"><b>Area code: </b><br></label>
+	         	<input
+			        type="number"
+			        class="form-control"
+			        id="Area_code"
+			        name="area_code"
+			        placeholder="Enter your area code (example: 28)"
+			        required/>
+    		</div>
+    		<br>
+
+    		<div class="form-group">
+      			<label for="Hearing Aid" style="font-size: 17px"><b>Hearing Aid</b><br></label>	         	
+	         	<select required/ name="Hearing_Aid" id="hearing_aid">
+					  <option value="0">No</option>
+					  <option value="1">Yes</option>
+					  
+				</select>
+    		</div>
+    		<br>
+    		
+    		<div class="form-group">
+      			 <label for="Hearing Aid Age" style="font-size: 17px"><b>Hearing Aid Age</b><br></label>
+	         	
+      			 <select required/ name="Hearing Aid Age" id="hearing_aid_age">
+					  <option value="0">Less than 1 year</option>
+					  <option value="1">Between 1 to 2 years</option>
+					  <option value="2">More than 2 years</option>
+					  <option value="3">Between 2 to 5 years</option>
+					  <option value="4">More than 5 years</option>
+
+				</select>
+
+			</div>
+ 			<br>
+ 			 		
+            <input type = 'submit' class = 'btn-info' value = 'predict'>
+
+        </form>
+			<br>
+			<br>
+            {{prediction_value}}
+    </div>
+
+</body>
+
+</html>
